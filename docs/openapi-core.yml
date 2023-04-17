@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: C# API Exercise - Core Criteria
+  description: |-
+  version: 0.2.2
+
+servers:
+  - url: http://localhost:4000
+tags:
+  - name: students
+  - name: languages
+paths:
+  /students:
+    post:
+      tags:
+        - students
+      summary: Create a student
+      description: Add a new student to the list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudent'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    get:
+      tags:
+        - students
+      summary: Get all students
+      description: Get all students from the list
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllStudents'
+  /students/{firstName}:
+    get:
+      tags:
+        - students
+      summary: Get a student
+      description: Get a single student by their first name
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    put:
+      tags:
+        - students
+      summary: Update a student
+      description: Update a student's details using the firstName provided. Just update the first student found in the list with the provided first name.
+      parameters:
+        - name: firstName
+          in: path
+          description: The first name of the student to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudent'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    delete:
+      tags:
+        - students
+      summary: Delete a student
+      description: Remove a student from the list and send that student back to the client
+      parameters:
+        - name: firstName
+          in: path
+          description: The first name of the student to update
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+
+  /languages:
+    post:
+      tags:
+        - languages
+      summary: Create a language
+      description: Add a new language to the list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLanguage'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+    get:
+      tags:
+        - languages
+      summary: Get all languages
+      description: Get all languages from the list
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllLanguages'
+  /languages/{name}:
+    get:
+      tags:
+        - languages
+      summary: Get a language
+      description: Get a single language by name
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+    put:
+      tags:
+        - languages
+      summary: Update a language
+      description: Update a language's name. Just update the first language found in the list with the provided name.
+      parameters:
+        - name: name
+          in: path
+          description: The name of the language to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLanguage'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+    delete:
+      tags:
+        - languages
+      summary: Delete a language
+      description: Remove a language from the list and send that language back to the client
+      parameters:
+        - name: name
+          in: path
+          description: The name of the language to update
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+
+components:
+  schemas:
+    CreateStudent:
+      type: object
+      required: [firstName, lastName]
+      properties:
+        firstName:
+          type: string
+          example: "Nathan"
+        lastName:
+          type: string
+          example: "King"
+    Student:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Nathan"
+        lastName:
+          type: string
+          example: "King"
+    AllStudents:
+      type: array
+      items:
+        $ref: '#/components/schemas/Student'
+
+    CreateLanguage:
+      type: object
+      required: [ name ]
+      properties:
+        name:
+          type: string
+          example: "Java"
+    Language:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Java"
+    AllLanguages:
+      type: array
+      items:
+        $ref: '#/components/schemas/Language'
