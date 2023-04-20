@@ -24,7 +24,7 @@ namespace request_response.Test
         [Order(1)]
         [NonParallelizable]
         [Test]
-        public void CreateStudent()
+        public void CreateBook()
         {
         }
 
