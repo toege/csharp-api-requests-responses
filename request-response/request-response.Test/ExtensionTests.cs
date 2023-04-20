@@ -20,5 +20,40 @@ namespace request_response.Test
         public void Setup()
         {
         }
+
+        [Order(1)]
+        [NonParallelizable]
+        [Test]
+        public void CreateStudent()
+        {
+        }
+
+        [Order(2)]
+        [NonParallelizable]
+        [Test]
+        public void GetAlBooks()
+        {
+        }
+
+        [Order(3)]
+        [NonParallelizable]
+        [Test]
+        public void GetBookByFirstName()
+        {
+        }
+
+        [Order(4)]
+        [NonParallelizable]
+        [Test]
+        public void UpdateBook()
+        {
+        }
+
+        [Order(5)]
+        [NonParallelizable]
+        [Test]
+        public void DeleteBook()
+        {
+        }
     }
 }
