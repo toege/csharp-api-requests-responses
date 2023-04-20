@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\request-response\request-response.csproj" />
+    <ProjectReference Include="..\request-response.Main\request-response.Main.csproj" />
   </ItemGroup>
 
 </Project>
