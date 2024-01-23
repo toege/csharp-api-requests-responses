@@ -11,11 +11,11 @@
 1. Fork this repository
 2. Clone your fork to your machine
 3. Open the project in Visual Studio
-4. After building the project, run the `Main` class and use `http://localhost:4000` to test your route implementations
+
 
 ## Requirements
 
-From this point on, you will no longer be given a list of requirements in the same way as previous exercises. Requirements will now be presented in the form of API documentation using the OpenAPI spec.
+Requirements for this exercise is presented in the form of API documentation using the OpenAPI spec.
 
 API documentation is usually defined before building the actual API so that the client and server can both be developed at the same time, working to satisfy the same specification.
 
@@ -56,11 +56,14 @@ As a developer, it's your job to build the API so that it satisfies the spec exa
 
 [Here's the spec for this exercise.](https://boolean-uk.github.io/csharp-api-requests-responses/) Spend some time getting familiar with it and pay close attention to the details.
 
-The `Students` class is already partially built for you to help you get started. This is the last time you'll receive boilerplate code as a starter, so spend some time understanding it. Experiment & change it until you feel comfortable.
+The `Students` class is already partially built for you to help you get started. This is the last time you'll receive boilerplate code as a starter, so spend some time understanding it. Experiment & change it until you feel comfortable.  
+
+You are free to change the provided code in this project but you must implement a minimal api with a repository layer before the data layer.
+
 
 ## Extensions
 
-All extensions going forward will be presented as a separate API spec. Sometimes they will expand on the existing core criteria, and sometimes they will be completely different.
+The extensions is presented as a separate API spec. 
 
 This one will have you considering the concept of unique identifiers for records.
 

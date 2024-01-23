@@ -1,4 +1,4 @@
-﻿namespace request_response.Models
+﻿namespace exercise.wwwapi.Models
 {
     public class Language
     {
