@@ -58,7 +58,7 @@ As a developer, it's your job to build the API so that it satisfies the spec exa
 
 The `Students` class is already partially built for you to help you get started. This is the last time you'll receive boilerplate code as a starter, so spend some time understanding it. Experiment & change it until you feel comfortable.  
 
-You are free to change the provided code in this project but you must implement a minimal api with a repository layer and data layer.
+**You are free to change the provided code in this project but you must implement a minimal api with a repository layer and data layer.**
 
 
 ## Extensions
