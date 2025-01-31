@@ -4,12 +4,16 @@ namespace exercise.wwwapi.Data
 {
     public class StudentCollection
     {
-        private List<Student> _students = new List<Student>()
-        {
-            new Student() { FirstName="Nathan",LastName="King" },
-            new Student() { FirstName="Dave", LastName="Ames" }
-        };
+        public static List<Student> students { get; set; } = new List<Student>();
 
+        public static void Initialize()
+        {
+            students.Add(new Student { FirstName = "Nathan", LastName = "King" });
+            students.Add(new Student { FirstName = "Dave", LastName = "Ames" });
+
+        }
+
+        /*
         public Student Add(Student student)
         {            
             _students.Add(student);
@@ -21,6 +25,7 @@ namespace exercise.wwwapi.Data
         {
             return _students.ToList();
         }
+        */
     };
 
 
