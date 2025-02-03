@@ -1,6 +1,77 @@
 @exercise.wwwapi_HostAddress = http://localhost:5115
 
-GET {{exercise.wwwapi_HostAddress}}/weatherforecast/
+GET {{exercise.wwwapi_HostAddress}}/students/
 Accept: application/json
 
 ###
+
+GET {{exercise.wwwapi_HostAddress}}/students/Nathan
+Accept: application/json
+
+###
+
+
+POST {{exercise.wwwapi_HostAddress}}/students
+Content-Type: application/json
+{
+  "FirstName": "John",
+  "LastName": "Doe"
+}
+###
+
+GET {{exercise.wwwapi_HostAddress}}/students/John
+Accept: application/json
+
+###
+
+PUT {{exercise.wwwapi_HostAddress}}/students/John
+Content-Type: application/json
+{
+  "FirstName": "Jane",
+  "LastName": "Smith"
+}
+###
+
+DELETE {{exercise.wwwapi_HostAddress}}/students/John
+Accept: application/json
+
+###
+
+
+// languages
+
+GET {{exercise.wwwapi_HostAddress}}/languages/
+Accept: application/json
+
+###
+
+GET {{exercise.wwwapi_HostAddress}}/languages/Java
+Accept: application/json
+
+###
+
+
+POST {{exercise.wwwapi_HostAddress}}/languages
+Content-Type: application/json
+{
+  "name": "C++"
+}
+###
+
+GET {{exercise.wwwapi_HostAddress}}/languages/C++
+Accept: application/json
+
+###
+
+PUT {{exercise.wwwapi_HostAddress}}/languages/Java
+Content-Type: application/json
+{
+    "name" : "Javascript"
+}
+###
+
+DELETE {{exercise.wwwapi_HostAddress}}/languages/Javascript
+Accept: application/json
+
+###
+

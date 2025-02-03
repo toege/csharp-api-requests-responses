@@ -40,7 +40,7 @@ namespace exercise.wwwapi.Endpoints
             return Results.Created($"https://localhost:7009/students/{student.FirstName}", student);
         }
 
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public static async Task<IResult> UpdateStudentByName(IStudentRepository repository, string firstName, StudentPut model)
@@ -48,9 +48,9 @@ namespace exercise.wwwapi.Endpoints
             try
             {
                 var target = repository.GetStudentByName(firstName);
-                if (target != null) return Results.NotFound();
+                if (target == null) return Results.NotFound();
                 target = repository.UpdateStudentByName(firstName, model);
-                return Results.Ok(target);
+                return Results.Created($"https://localhost:7009/students/{target.FirstName}", target);
             }
             catch (Exception ex)
             {

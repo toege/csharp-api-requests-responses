@@ -36,7 +36,7 @@ namespace exercise.wwwapi.Endpoints
             return Results.Created($"https://localhost:7009/students/{language.name}", language);
         }
 
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         private static async Task<IResult> UpdateLanguage(ILanguageRepository repository, string name, LanguagePut model)
@@ -44,9 +44,9 @@ namespace exercise.wwwapi.Endpoints
             try
             {
                 var target = repository.GetLanguage(name);
-                if (target != null) return Results.NotFound();
+                if (target == null) return Results.NotFound();
                 target = repository.UpdateLanguage(name, model);
-                return Results.Ok(target);
+                return Results.Created($"https://localhost:7009/students/{target.name}", target);
             }
             catch (Exception ex)
             {

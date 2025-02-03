@@ -7,13 +7,12 @@ namespace exercise.wwwapi.Repository
     public class LanguageRepository : ILanguageRepository
     {
         public Language AddLanguage(LanguagePost model)
-        { 
-            Language language = new Language
-            {
-                name = model.name
-            };
+        {
+            Language language = new Language(model.name);
+                        
             LanguageCollection.languages.Add(language);
             List<string> liste = new List<string>();
+            return language;
         }
 
 
